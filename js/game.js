@@ -1,6 +1,7 @@
 jQuery(()=>{
-    var speed = 20;
+    var speed = 10;
     var score = 0;
+
     var transformInterval = setInterval(()=>{
         var containers = $('body').children();
         for(let i=1; i<=containers.length; i++){
@@ -19,11 +20,12 @@ jQuery(()=>{
                 }
             }
         }
-    },speed);
+    },20);
 
     $('.container').mouseenter((e)=>{
+        showNotification(score)
         clearInterval(transformInterval)
-        $(this).children('.bottom').css("background-color", 'red')
+        
     })
 
     function getRandomNumber(){
@@ -36,6 +38,23 @@ jQuery(()=>{
         return flr;
     }
 
+    function showNotification(_score){
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        document.getElementById("score").innerHTML = _score;
+        modal.style.display = 'flex';
 
+        span.onclick = function() {
+            modal.style.display = "none";
+            transformInterval;
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
 
 })
+
