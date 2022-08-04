@@ -1,10 +1,29 @@
 body{
-    
-    display: flex;
-    flex-direction: row;
+
+    opacity: 0.8;
     margin: 0px;
     height: 100vh;
     
+}
+
+.scoreboard{
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    background-color: rgb(247, 247, 247);
+    z-index: 1;
+    right: 0;
+    margin-top: 1em;
+    margin-right: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 15px;
+}
+
+.scoreboard h3, .scoreboard span{
+    font-family: monospace;
 }
 
 .gamepad{
