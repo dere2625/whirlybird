@@ -1,5 +1,5 @@
 jQuery(()=>{
-    var speed = 10;
+    var step = 10;
     var score = 0;
 
     var transformInterval = setInterval(()=>{
@@ -8,10 +8,11 @@ jQuery(()=>{
             var position = $(`.container:nth-child(${i})`).position();
             if(position!=undefined){
                 $(`.container:nth-child(${i})`).offset(
-                    {top:0,left:position.left - 10}
+                    {top:0,left:position.left - step}
                 )
                 if($(`.container:nth-child(${i})`).position().left + 150 < 0){
                     score++;
+                    step+=0.5;
                     $('.scoreboard h3 span').html(score)
                     $(`.container:nth-child(${i})`).offset({top:0,left:$(window).width()+200})
                     var temp = getRandomNumber();
