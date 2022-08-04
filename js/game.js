@@ -40,19 +40,30 @@ jQuery(()=>{
 
     function showNotification(_score){
         var modal = document.getElementById("myModal");
-        var span = document.getElementsByClassName("close")[0];
-        document.getElementById("score").innerHTML = _score;
         modal.style.display = 'flex';
-
-        span.onclick = function() {
-            modal.style.display = "none";
-            transformInterval;
-        }
-
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+        let status =  'Game Over !!!'.split('');
+        let i=0;
+        var statusInterval = setInterval(()=>{
+            $('.modal-content p').first().append(status[i])
+            i++;
+        },200)
+        if(i > status.length){
+            clearInterval(statusInterval)
+        }
+
+        let score = ('Your score is '+_score).split('');
+        let j=0;
+        var scoreInterval = setInterval(()=>{
+            $('.modal-content p').last().append(score[j])
+            j++;
+        },200)
+        if(j > score.length){
+            clearInterval(scoreInterval)
         }
     }
 
