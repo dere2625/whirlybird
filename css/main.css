@@ -12,7 +12,7 @@ body{
     flex-direction: row;
     width: 100%;
     height: 100%;
-    gap: 400px;
+    gap: 300px;
     justify-content:space-between;
     align-items: center;
     position: relative;
